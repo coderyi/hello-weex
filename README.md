@@ -5,12 +5,18 @@
 
 ###简介
 
-hello-weex包括一些weex的examples，和自己扩展的WeexiOSKit。
+hello-weex包括一个Weex App，和自己扩展的WeexiOSKit。
 
 
 weex version为
 [v0.7.0 - 10月16日](https://github.com/alibaba/weex/tree/cb65b3cb892b2ddd36528b2c971303a529d68bd3)的版本
 
+###Weex App: Monkey for GitHub
+
+Monkey主要是用来展示GitHub上的开发者的排名，以及仓库的排名。
+
+
+###WeexiOSKit
 
 ### 运行
 

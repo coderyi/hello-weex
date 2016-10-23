@@ -4,7 +4,7 @@
 // Created by Matej Bukovinski on 2.4.09.
 //
 
-#import "MBProgressHUD.h"
+#import "WXMBProgressHUD.h"
 #import <tgmath.h>
 
 
