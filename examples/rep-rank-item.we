@@ -1,0 +1,126 @@
+<template>
+  <div class="repItem">
+    <div class = "titleDiv">
+      <text class="item-title" style= "margin-left:10;width:90;font-size: 40px ;text-overflow: ellipsis;text-align: center;align-items:center;padding-top:16">{{index+1}}</text>
+      <image style="margin-left:10;width: 80;height: 80;justify-content:center;border-radius:10;" src={{avatar_url}}></image>
+    </div>
+    <div class= "detailDiv">
+      <div class="detailTitleItem">
+        <text class="item-title" style= "text-overflow:ellipsis;width:400;margin-left:30;margin-right:0;flex:2;">{{name}}</text>
+        <text class="item-star" style= "text-overflow:ellipsis;width:400;margin-left:30;margin-right:0;flex:1;">{{'Star:'+stargazers_count}}</text>
+
+      </div>
+
+      <div class="detailCenterItem">
+        <text class="item-star" style= "text-overflow:ellipsis;width:400;margin-left:30;margin-right:0;flex:1;">{{'Owner:'+login}}</text>
+        <text class="item-homepage" style= "text-overflow:ellipsis;width:400;margin-left:30;margin-right:0;flex:2;">{{homepage}}</text>
+
+      </div>
+
+      
+      <div class="detailFooterItem">
+
+        <text class="item-description" style= "text-overflow:ellipsis;width:400;margin-left:30;flex:1">{{description}}</text>
+      </div>
+
+    </div>
+  </div>
+        
+
+</template>
+<!-- 200 -->
+<style>
+  .item-txt {
+    font-size: 48px;
+    color: #555;
+  }
+  .repItem {
+    border-bottom-width: 1;
+    border-bottom-color: #c0c0c0;
+    margin-right:5;
+    margin-left:5;
+    justify-content:flex-start;  
+    padding: 20;
+    overflow: visible;
+    flex-direction:row;
+
+  }
+
+  .item-title {
+    color: #437ABE;
+    lines:1;
+    margin-top:10;
+
+  }
+  .item-star {
+    color: #9C9C9C;
+    font-size: 24px;
+    lines:1;
+    margin-top:10;
+  }
+  .item-homepage {
+    color: #437ABE;
+    font-size: 24px;
+    lines:1;
+    margin-top:10;
+  }
+  .item-description {
+    color: black;
+    font-size: 26px;
+    lines:2;
+    margin-top:10;
+  }
+  .titleDiv {
+    flex-direction: column;
+    flex :1;
+    margin-left:5;
+    height: 200
+  }
+
+  .detailDiv {
+    flex-direction: column;
+    flex :5;
+    margin-left:5;
+  }
+  .detailTitleItem {
+    flex-direction: row;
+    flex :1;
+    margin-left:5;
+  }
+  .detailCenterItem {
+    flex-direction: row;
+    flex :1;
+    height: 20;
+    margin-left:5;
+  }
+  .detailFooterItem {
+    flex-direction: row;
+    flex :2;
+    margin-left:5;
+  }
+
+</style>
+
+<script>
+  require('weex-components');
+  module.exports = {
+    data: {
+      index:'',
+      avatar_url:'',
+      name:'',
+      login: '',
+      repositoryDescription: '',
+      homepage:'',
+      stargazers_count: '',
+      forks_count: '',
+      description:''
+    },
+    ready :function() {
+    },
+    methods: {
+      redirect: function() {
+        this.$openURL(this.url);
+      }
+    }
+  }
+</script>

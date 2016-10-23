@@ -1,0 +1,77 @@
+<template>
+  <div style="flex-direction: column;">
+    <wxc-tabbar tab-items = {{tabItems}}></wxc-tabbar>
+  </div>
+</template>
+
+<script>
+  require('weex-components');
+  var utils = require('./weex-kit/js-kit/utils');
+
+  module.exports = {
+    data: {
+      dir: 'examples',
+      tabItems: [
+        {
+          index: 0,
+          title: 'home',
+          titleColor: '#000000',
+          icon: '',
+          image: 'http://gtms01.alicdn.com/tps/i1/TB1B0v5MpXXXXcvXpXX9t7RGVXX-46-46.png',
+          selectedImage: 'http://gtms04.alicdn.com/tps/i4/TB1NxY5MpXXXXcrXpXX9t7RGVXX-46-46.png',
+          src: 'hello-weex.js?itemId=tab3',
+          visibility: 'hidden',
+        },
+        {
+          index: 1,
+          title: 'more',
+          titleColor: '#000000',
+          icon: '',
+          image: 'http://gtms01.alicdn.com/tps/i1/TB1B0v5MpXXXXcvXpXX9t7RGVXX-46-46.png',
+          selectedImage: 'http://gtms04.alicdn.com/tps/i4/TB1NxY5MpXXXXcrXpXX9t7RGVXX-46-46.png',
+          src: 'more.js?itemId=tab3',
+          visibility: 'hidden',
+        }     
+
+      ],
+    },
+
+    computed: {
+      z: function () {
+        return this.x + this.y
+      }
+    },
+
+    methods: {
+    },
+
+    events: {
+      custom: function (e) {
+        console.log(e)
+      }
+    },
+    init: function () {
+
+    },
+
+
+    created: function() {
+      var base = utils.getTabbarBaseUrl(this)
+
+      for(var i = 0; i < this.tabItems.length; i++) {
+        var tabItem = this.tabItems[i];
+        tabItem.src = base + tabItem.src;
+      }
+    },
+    ready: function (e) {
+      var vm = this;
+      vm.$on('tabBar.onClick',function(e){
+        var detail= e.detail;
+      });
+    },
+
+
+
+
+  }
+</script>

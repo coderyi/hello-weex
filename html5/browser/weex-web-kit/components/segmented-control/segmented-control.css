@@ -1,0 +1,16 @@
+.weex-sc {
+  	flex-direction: row;
+  	border-radius: 6px;
+	border-left:2px solid red;
+}
+
+.weex-sc-item {
+  	flex-direction: row;
+  	border-radius: 6px;
+	border-right:2px solid red;
+	border-bottom:2px solid red;
+	border-top:2px solid red;
+	text-align:center;
+	vertical-align:middle;
+	align-content:center;
+}

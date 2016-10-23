@@ -1,0 +1,23 @@
+
+<template>
+  <div class="wrapper">
+    <text class="title">Hello</text>
+    <image src="{{logoUrl}}" class="logo"></image>
+  </div>
+</template>
+
+<style>
+  .wrapper {align-items: center; margin-top: 120px;}
+  .title {font-size: 70px;color: #DC544C;}
+  .logo {width: 360px; height: 82px;margin-top: 60px;}
+</style>
+
+<script>
+  module.exports = {
+    data: {
+      logoUrl: 'http://alibaba.github.io/weex/img/weex_logo_blue@3x.png',
+    },
+    methods: {
+    }
+  }
+</script>
