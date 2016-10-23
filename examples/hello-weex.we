@@ -70,9 +70,9 @@
     data: {
       baseURL: '',
       rows:[
+        {name: 'monkey-index',title:"weex app : monkey for github"},
         {name: 'ioscomponent-example',title:"ios component"},
         {name: 'iosmodule-example',title:"ios module"},
-        {name: 'monkey-index',title:"weex app : monkey for github"},
         {name: 'webcomponent-example',title:"web component"}
 
       ]
