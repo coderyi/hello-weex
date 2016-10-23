@@ -223,4 +223,14 @@ vibration
 ```
 
 
+#### Licenses
+
+All source code is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+
+
+欢迎加入Weex学习小组，一起学习Weex！
+
+<img src="https://raw.githubusercontent.com/coderyi/blog/master/other/images/weexwechat.jpeg" width="225" height="300">
+
+
 
