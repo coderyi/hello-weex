@@ -11,6 +11,10 @@ hello-weex包括一个Weex App，和自己扩展的WeexiOSKit。
 weex version为
 [v0.7.0 - 10月16日](https://github.com/alibaba/weex/tree/cb65b3cb892b2ddd36528b2c971303a529d68bd3)的版本
 
+Weex App 的代码位于 [examples](https://github.com/coderyi/hello-weex/tree/master/examples)目录下
+
+WeexiOSKit的代码位于 [ios/playground/WeexDemo/WeexiOSKit](https://github.com/coderyi/hello-weex/tree/master/ios/playground/WeexDemo/WeexiOSKit)目录下
+
 
 ### 运行
 
@@ -214,6 +218,8 @@ vibration
 
 
 ###weex-web-kit
+
+weex-web-kit代码位于[html5/browser/weex-web-kit](https://github.com/coderyi/hello-weex/tree/master/html5/browser/weex-web-kit)目录下
 
 <img  src="https://github.com/coderyi/hello-weex/blob/master/img/web-sc.png" width="250" height="445">
 
