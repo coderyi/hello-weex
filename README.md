@@ -93,7 +93,13 @@ event:`onchange`
 
 
 ```
-<segmented-control style="width: 240;height: 120;margin-top:20" items="hello;world" momentary= "false" tint-color= "red" onchange="onSCChangeAction"></segmented-control>
+<segmented-control 
+	style="width: 240;height: 120;margin-top:20" 
+	items="hello;world" 
+	momentary= "false" 
+	tint-color= "red" 
+	onchange="onSCChangeAction">
+</segmented-control>
 ```
 
 
