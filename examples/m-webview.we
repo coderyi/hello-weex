@@ -54,7 +54,6 @@
                 var me = this;
                 var bundleUrl = me.$getConfig().bundleUrl;
                 me.user_blog = utils.getParameterByName('src',bundleUrl);
-    
             },
             goback: function() {
                 var $webview = require('@weex-module/webview');

@@ -63,7 +63,6 @@
 
     },
 
-
     created: function() {
       var base = utils.getTabbarBaseUrl(this)
 
@@ -72,6 +71,7 @@
         tabItem.src = base + tabItem.src;
       }
     },
+
     ready: function (e) {
       var vm = this;
       vm.$on('tabBar.onClick',function(e){
@@ -80,9 +80,5 @@
         console.log('tabBar.onClick ' + detail.index)
       });
     },
-
-
-
-
   }
 </script>

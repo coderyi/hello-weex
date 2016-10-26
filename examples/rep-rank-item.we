@@ -8,32 +8,19 @@
       <div class="detailTitleItem">
         <text class="item-title" style= "text-overflow:ellipsis;width:400;margin-left:30;margin-right:0;flex:2;">{{name}}</text>
         <text class="item-star" style= "text-overflow:ellipsis;width:400;margin-left:30;margin-right:0;flex:1;">{{'Star:'+stargazers_count}}</text>
-
       </div>
-
       <div class="detailCenterItem">
         <text class="item-star" style= "text-overflow:ellipsis;width:400;margin-left:30;margin-right:0;flex:1;">{{'Owner:'+login}}</text>
         <text class="item-homepage" style= "text-overflow:ellipsis;width:400;margin-left:30;margin-right:0;flex:2;">{{homepage}}</text>
-
       </div>
-
-      
       <div class="detailFooterItem">
-
         <text class="item-description" style= "text-overflow:ellipsis;width:400;margin-left:30;flex:1">{{description}}</text>
       </div>
-
     </div>
   </div>
-        
-
 </template>
-<!-- 200 -->
+
 <style>
-  .item-txt {
-    font-size: 48px;
-    color: #555;
-  }
   .repItem {
     border-bottom-width: 1;
     border-bottom-color: #c0c0c0;
@@ -43,14 +30,11 @@
     padding: 20;
     overflow: visible;
     flex-direction:row;
-
   }
-
   .item-title {
     color: #437ABE;
     lines:1;
     margin-top:10;
-
   }
   .item-star {
     color: #9C9C9C;
@@ -76,7 +60,6 @@
     margin-left:5;
     height: 200
   }
-
   .detailDiv {
     flex-direction: column;
     flex :5;

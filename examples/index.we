@@ -32,7 +32,6 @@
           src: 'more.js?itemId=tab3',
           visibility: 'hidden',
         }     
-
       ],
     },
 
@@ -53,11 +52,8 @@
     init: function () {
 
     },
-
-
     created: function() {
       var base = utils.getTabbarBaseUrl(this)
-
       for(var i = 0; i < this.tabItems.length; i++) {
         var tabItem = this.tabItems[i];
         tabItem.src = base + tabItem.src;
@@ -69,9 +65,5 @@
         var detail= e.detail;
       });
     },
-
-
-
-
   }
 </script>

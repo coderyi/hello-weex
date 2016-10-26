@@ -23,13 +23,11 @@
     margin-left:30;
     flex :1;
     margin-right:0;
-
   }
 
   .repDiv {
     width: 740;
     height: 400;
-
     flex-direction: column;
     background-color: #ffffff;
     margin: 5;
@@ -43,9 +41,7 @@
     flex :2;
     margin-left:5;
     background-color: #ffff33;
-
   }
-
   .repCenter {
     flex-direction: row;
     flex :1;
@@ -55,12 +51,9 @@
   .repFooter {
     flex-direction: row;
     flex :2;
-
     margin-left:5;
     background-color: #34ffff;
-
   }
-
 </style>
 
 <script>
@@ -70,46 +63,32 @@
   module.exports = {
     data: {
       rep_created_at:'',
-      rep_login: 'dd',
+      rep_login: '',
       rep_avatar_url: '',
-      rep_name: 'ddda',
-      rep_description: 'dd',
-      rep_homepage: 'dd',
-      rep_stargazers_count: 'add',
-      rep_forks_count: 'dd',
+      rep_name: '',
+      rep_description: '',
+      rep_homepage: '',
+      rep_stargazers_count: '',
+      rep_forks_count: '',
       baseURL:'',
       dir:'examples'
     },
     created: function(){
-
       this.baseURL = utils.getAppBaseUrl(this)
     },
     ready: function(e) {
       var me = this;
-
-
       var bundleUrl = me.$getConfig().bundleUrl;
-
       me.rep_created_at=utils.getParameterByName('rep_created_at', bundleUrl).substring(0,10)
-
       me.rep_login = utils.getParameterByName('rep_login', bundleUrl)
       me.rep_avatar_url = utils.getParameterByName('rep_avatar_url', bundleUrl)
       me.rep_name = utils.getParameterByName('rep_name', bundleUrl)
       me.rep_description = utils.getParameterByName('rep_description', bundleUrl)
       me.rep_homepage = utils.getParameterByName('rep_homepage', bundleUrl)
-
-
-
     },
-
-
     methods: {
-
-     
       onclickcell: function (e) {
-
         this.$openURL(this.baseURL+'m-webview.js?src='+this.rep_homepage);
-
       }
   }
 }

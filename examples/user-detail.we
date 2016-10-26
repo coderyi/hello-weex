@@ -2,11 +2,10 @@
   <div class="userDiv">
       <div class= "userHeader">
       <image style="width: 120;height: 120;margin-top:20" src={{user_avatar_url}}></image>
-
-      <testyi style=" background-color: red;margin-top:20"> qf疯1</testyi>
+      <text style=" background-color: red;margin-top:20">{{userdetail.created_at}}</text>
     </div>  
     <div class= "userRow">
-      <text style=" background-color: #2323ff;margin-top:20"> {{user_login+'x爱上'}}</text>
+      <text style=" background-color: #2323ff;margin-top:20"> {{user_login}}</text>
       <text style=" background-color: #2323ff;margin-top:20"> {{userdetail.name}}</text>
       <text style=" background-color: #2323ff;margin-top:20"> {{userdetail.company}}</text>
     </div>  
@@ -23,7 +22,6 @@
   .userDiv {
     width: 740;
     height: 400;
-
     flex-direction: row;
     background-color: #ffffff;
     margin: 5;
@@ -37,9 +35,7 @@
     flex :1;
     margin-left:5;
     background-color: #ffff33;
-
   }
-
   .userRow {
     flex-direction: column;
     flex :2;
@@ -49,59 +45,54 @@
   .userFooter {
     flex-direction: column;
     flex :3;
-
     margin-left:5;
     background-color: #34ffff;
-
   }
-
 </style>
 
 <script>
   var utils = require('./weex-kit/js-kit/utils');
-    var monkeyApi = require('./common-js/api');
+  var monkeyApi = require('./common-js/api');
 
-    module.exports = {
+  module.exports = {
 
 
 
-      data: {
-        user_login: 'dd',
-        user_avatar_url: '',
-        user_name: 'ddda',
-        user_email: 'dd',
-        user_blog: 'dd',
-        user_location: 'add',
-        user_company: 'dd',
-        userdetail:'',
-        baseURL:'',
-        dir:'examples'
-      },
-      created: function(){
+    data: {
+      user_login: '',
+      user_avatar_url: '',
+      user_name: '',
+      user_email: '',
+      user_blog: '',
+      user_location: '',
+      user_company: '',
+      userdetail:'',
+      baseURL:'',
+      dir:'examples'
+    },
+    created: function(){
+      this.baseURL = utils.getAppBaseUrl(this)
+    },
+    ready: function(e) {
+      var me = this;
+      var bundleUrl = me.$getConfig().bundleUrl;
+      me.user_login=utils.getParameterByName('login', bundleUrl)
+      me.user_avatar_url = utils.getParameterByName('avataUrl', bundleUrl)
+      me.requestDetail(me.user_login)
+    },
 
-        this.baseURL = utils.getAppBaseUrl(this)
-      },
-      ready: function(e) {
+    methods: {
+      requestDetail: function (login) {
         var me = this;
-        var bundleUrl = me.$getConfig().bundleUrl;
-        me.user_login=utils.getParameterByName('login', bundleUrl)
-        me.user_avatar_url = utils.getParameterByName('avataUrl', bundleUrl)
-        me.requestDetail(me.user_login)
-
+        monkeyApi.requestUserDetail(login,function(data){
+          me.userdetail=data;
+          me.userdetail.created_at= me.userdetail.created_at.substring(0,10)
+          console.log('userdetail' + me.userdetail.blog);
+        })
       },
-
-      methods: {
-        requestDetail: function (login) {
-          var me = this;
-          monkeyApi.requestUserDetail(login,function(data){
-            me.userdetail=data;
-            me.userdetail.created_at= me.userdetail.created_at.substring(0,10)
-            console.log('userdetail' + me.userdetail.blog);
-          })
-        },
-        onclickcell: function (e) {
-          this.$openURL(this.baseURL+'m-webview.js?src='+this.userdetail.blog);
-        }
+      onclickcell: function (e) {
+        this.$openURL(this.baseURL+'m-webview.js?src='+this.userdetail.blog);
+      }
     }
   }
 </script>

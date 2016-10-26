@@ -4,15 +4,9 @@
     <image style="width: 80;height: 80;justify-content:center;border-radius:10;" src={{avatar_url}}></image>
     <text class="item-title" style= "font-size: 40px;text-overflow:ellipsis;width:400;margin-left:30;margin-right:0;flex:1;padding-top:16">{{login}}</text>
   </div>
-        
-
 </template>
 
 <style>
-  .item-txt {
-    font-size: 48px;
-    color: #555;
-  }
   .item {
     border-bottom-width: 1;
     border-bottom-color: #c0c0c0;
@@ -23,7 +17,6 @@
     padding: 20;
     overflow: visible;
   }
-
   .item-title {
     color: #437ABE;
   }
@@ -35,14 +28,11 @@
     data: {
       index:'',
       avatar_url:'',
-      login:'',
-      title: '',
-      url: ''
+      login:''
     },
     methods: {
       redirect: function() {
         this.$openURL(this.url);
-
       }
     }
   }

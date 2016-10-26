@@ -1,14 +1,11 @@
 <template>
-
   <div>
-
     <div class="segment-control">
       <text class="select-city" onclick="onclickLeftItem">city</text>
       <text class="segment-item-city" id ="city" onclick="onclickcity">{{currentCity}}</text>
       <text class="segment-item" id ="country" onclick="onclickcountry">{{currentCountry}}</text>
       <text class="segment-item" id ="world" onclick="onclickworld">{{languageText}}</text>
       <text class="select-language" onclick="onclickRightItem">{{currentLanguage}}</text>
-
     </div>
     <list class="list">
       <refresh class="refresh" display="{{displayRefresh}}" onrefresh="handleRefresh">
@@ -21,17 +18,16 @@
       <cell onappear="onappear" ondisappear="ondisappear" onclick="onclickcell" class="row" repeat="{{(k , v) in rows}}" index="{{k}}">
         <user-rank-item index="{{k}}" login="{{v.login}}" avatar_url="{{v.avatar_url}}"></user-rank-item>
       </cell>
+
       <loading class="loading-view" display="{{loadingDisplay}}" onloading="onloading">
         <text class="loading-text" style="text-align: center; color:rgb(238, 162, 54)" if="{{(refreshDisplay==='hide' && rows.length > 0)}}">Load more</text>
         <loading-indicator class="indicator"></loading-indicator>
       </loading>
-
     </list>
   </div>
 </template>
 
 <style>
-
   .list {
     width: 750px;
     flex: 1;
@@ -43,21 +39,11 @@
   }
   .row {
     width: 750px;
-
-  }
-  .item {
-    border-bottom-width: 1px;
-    border-bottom-color: #c0c0c0;
-    padding:0px;
-  }
-  .item-title {
-    color: #437ABE;
   }
   .loading-text {
     font-size: 30px;
     color: #45b5f0;
   } 
-
   .loading-view {
     height: 120px;
     width: 750px;
@@ -90,7 +76,7 @@
     margin-left:20px;
     color:rgb(238, 162, 54)
   }
-    .segment-item-city {
+  .segment-item-city {
     margin-left:80px;
     color:rgb(238, 162, 54)
   }
@@ -98,13 +84,12 @@
     margin-left:20px;
     color:#DC544C;
     font-size: 44px;
-      }
+  }
   .select-language {
     margin-left:60px;
     color:#DC544C;
     font-size: 44px;
   }
-
  .img-circle {
     /*不支持100%*/
     width: 60; 
@@ -113,32 +98,26 @@
     justify-content: center;
     /*position:absolute;z-index: 10;left:0px;top:0px;*/
   }
-
 </style>
 
 <script>
   require('weex-components');
   var utils = require('./weex-kit/js-kit/utils');
   var monkeyApi = require('./common-js/api');
-
   var animation = require('@weex-module/animation');
   var timer  
 
   module.exports = {
-    
     data: {
       refreshDisplay : 'hide',
       loadingDisplay : 'hide',
       displayRefresh: 'hide',
-
       page:1,
       dir: 'examples',
       baseURL: '',
       splashCircle:'//duqian291902259.github.io/dusan/oair/splash_circle.png',
-
       currentRotate: 0,
       currentScale: 1,
-      isStop: false,
       rows:[],
       worldRows:[],
       worldPage:1,
@@ -151,7 +130,6 @@
       currentCity:'Beijing',
       currentCountry:'China',
       currentLanguage:'JavaScript'
-
     },
     computed: {
       languageText: function () {
@@ -163,7 +141,6 @@
     },
     created: function(){
       this.baseURL = utils.getAppBaseUrl(this)
- 
     },
     ready: function(e) {
       var storage = require('@weex-module/storage');
@@ -180,19 +157,16 @@
           isDiff = true;
         }
         me.currentCountry = e.data;
-
       });      
       storage.getItem('language',function(e){
         utils.weexLog('get foqo result:'+JSON.stringify(e))
         if (me.currentLanguage !== e.data) {
           isDiff = true;
         }
-
         me.currentLanguage = e.data;
         me.requestData(function(state) {
         });
       }); 
-
     },
     methods: {
       onclickcity : function(e) {
@@ -206,15 +180,10 @@
       },
       onclickRightItem:function(e) {
         this.$openURL(this.baseURL+'language.js');
-
-   
-
       },  
       onclickLeftItem:function(e) {
         this.$openURL(this.baseURL+'country.js');
-
       },
-
       onclicksegment : function (index) {
         var vm = this;
         vm.currentIndex = index ; 
@@ -222,7 +191,6 @@
           return;
         }
         vm.lastSelectedIndex = index;
-
         if (index === 1) {
           if (vm.cityRows.length > 0) {
             vm.rows = [];
@@ -253,22 +221,16 @@
               var item = vm.worldRows[i];
               vm.rows.push(item);
             }
-
           }else {
-
             vm.requestData(function(state) {
             });                        
           }
-
         }
       },
       onappear: function (e) {
-
       },
       ondisappear:function (e) {
-
       },
-
       onloading: function (e) {
         var vm = this;
         vm.loadingDisplay = 'show'
@@ -279,11 +241,9 @@
         }else{
           vm.worldPage = vm.worldPage+1;
         }
-
         setTimeout(function () {
           vm.loadingDisplay = 'hide'
         }, 10000)
-
         vm.requestData(function(state) {
           vm.loadingDisplay = 'hide'
         });
@@ -294,31 +254,23 @@
         vm.rotate()
         if (vm.currentIndex === 1) {
           vm.cityPage = 1;
-
         }else if (vm.currentIndex === 2){
           vm.countryPage = 1;
-
         }else {
           vm.worldPage = 1;
-
         }
-
-
         timer = setInterval(function () {
             vm.displayRefresh = 'hide'
           }, 10000)
         vm.requestData(function(state) {
           vm.displayRefresh = 'hide'
         });
-        
-
       },
       onclickcell: function (e) {
         var index = e.target.attr.index;
         this.$openURL(this.baseURL+'user-detail.js?login='+this.rows[index].login+'&avataUrl='+this.rows[index].avatar_url);
       },
       requestData:function (callback){
-
         var me = this;
         var location = me.currentCity;
         var pageNum;
@@ -326,23 +278,17 @@
           if (!me.currentCity) {
             me.currentCity = 'Beijing'
           }
-
           location = me.currentCity;
-
           pageNum = me.cityPage;
         }else if (me.currentIndex === 2) {
-
           if (!me.currentCountry) {
             me.currentCountry = 'China'
           }
-
           location = me.currentCountry;
           pageNum = me.countryPage;
-
         }else{
           location = 'World';
           pageNum = me.worldPage;
-
         }
         if (!me.currentLanguage) {
           me.currentLanguage = 'JavaScript';
@@ -354,7 +300,6 @@
                 var item = data[i];
                 me.cityRows.push(item);
               }
-
             }else{
               me.cityRows=data;
             }
@@ -392,7 +337,6 @@
           timingFunction: timingFunction,
           duration: duration
         }, callback)
-
       },
       // 旋转
       rotate: function() {
@@ -424,9 +368,6 @@
           }
         });
       }
-
-
-
     }  
   }
 </script>

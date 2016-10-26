@@ -15,15 +15,6 @@
     width: 750px;
     flex: 1;
   }
-  .count {
-    font-size: 48px;
-    margin:10px;
-  }
-  .indicator {
-    height: 40px;
-    width: 40px;
-    color:#45b5f0;
-  }
   .row {
     width: 750px;
   }
@@ -47,7 +38,6 @@
   module.exports = {
     created : function() {
       this.baseURL = utils.getAppBaseUrl(this)
-
     },
     ready : function () {
     },
@@ -60,10 +50,7 @@
       onclickcell: function (e) {
         var index = e.target.attr.index;
         var storage = require('@weex-module/storage');
-
-
         this.$openURL(this.baseURL+this.rows[index].name+'.js');
-
       },
 
     },
@@ -74,7 +61,6 @@
         {name: 'ioscomponent-example',title:"ios component"},
         {name: 'iosmodule-example',title:"ios module"},
         {name: 'webcomponent-example',title:"web component"}
-
       ]
     }
   }

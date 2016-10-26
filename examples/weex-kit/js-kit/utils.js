@@ -1,5 +1,4 @@
 
-
 var modal
 __weex_define__('@weex-temp/x', function(__weex_require__) {
     modal = __weex_require__('@weex-module/modal')
@@ -11,8 +10,8 @@ __weex_define__('@weex-temp/x', function(__weex_require__) {
 })
 
 var data = {
-    baseurl: 'http://localhost:12580/project/build/',
-    baseImageUrl: 'http://xiaobaiossdevortest.oss-cn-beijing.aliyuncs.com/common/',
+    baseurl: 'http://localhost:12580/',
+    baseImageUrl: 'http://github.com',
     baseh5url: 'http://localhost:12580/index.html?page=./examples/build/',
     debug: true
 }
@@ -32,7 +31,6 @@ function getDeviceInfo(self) {
     }
     return deviceInfo
 }
-
 
 function push(self, url) {
     var filterUrl = url
@@ -72,6 +70,7 @@ function toast(self, content) {
     //     'duration': 2.0
     // })
 }
+
 //get url's parameter by name ,better getUrlParam
 function getParameterByName(name, url) {
     name = name.replace(/[\[\]]/g, "\\$&")
@@ -81,7 +80,6 @@ function getParameterByName(name, url) {
     if (!results[2]) return ''
     return decodeURIComponent(results[2].replace(/\+/g, " "))
 }
-
 
 function getBaseUrl() {
     // in Native
@@ -127,8 +125,6 @@ function getAppBaseUrl(self) {
     if (typeof window === 'object') {
       base = h5Base;
     }
-
-
     return base
 }
 
@@ -163,7 +159,6 @@ function getTabbarBaseUrl(self) {
       base = h5Base;
     }
     return base 
-
 }
 
 function getBaseImageUrl() {
@@ -174,8 +169,6 @@ function weexLog(log) {
     console.log(log)
     nativeLog(log)
 }
-
-
 
 exports.isIosPlatform = isIosPlatform
 exports.getDeviceInfo = getDeviceInfo

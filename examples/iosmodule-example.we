@@ -1,45 +1,35 @@
 <template>
   <scroller>
-
-
     <wxc-panel title="actionSheet" type="primary">
       <text onclick="{{actionSheet}}" >actionSheet</text>
-
     </wxc-panel>
 
     <wxc-panel title="MBProgressHUD" type="primary">
         <text onclick="{{toast}}" >MBProgressHUD</text>
     </wxc-panel>
+
     <wxc-panel title="geolocation" type="primary">
       <text onclick="{{geolocationAction}}" >geolocation</text>
       <text style="margin-top:30">{{geolocationValue}}</text>
-
     </wxc-panel>
+
     <wxc-panel title="vibration" type="primary">
       <text onclick="{{vibrate}}" >vibrate</text>
     </wxc-panel>
-
   </scroller>
 </template>
 
 <style>
-  .txt {
-    margin-bottom: 12px;
-    font-size: 40px;
-  }
 </style>
 
 <script>
   require('weex-components');
   module.exports = {
-
-
-
     data: {
       geolocationValue:'',
       buttons: [
         'Option 0',
-        ['d','sd'],
+        ['test','error'],
         'Option 1',
         'Option 2',
         'Delete',
@@ -47,13 +37,9 @@
       ]
     },
     created: function(){
-
     },
     ready: function(e) {
-
     },
-
-
     methods: {
       toast: function() {
         var MBProgressHUD = require('@weex-module/MBProgressHUD');
@@ -73,6 +59,7 @@
         }, function(result) {
         });
       },
+
       geolocationAction: function() {
         var me= this;
         var geolocation = require('@weex-module/geolocation');
@@ -84,6 +71,7 @@
         }, function(result) {
         });
       },
+      
       vibrate: function() {
         var vibration = require('@weex-module/vibration');
         vibration.vibrate()

@@ -1,11 +1,8 @@
 <template>
   <div>
-
     <div class="nav-bar">
       <text class="select-language" onclick="onclickRightItem">{{currentLanguage}}</text>
     </div>
-
-
     <list class="list">
       <refresh class="refresh" display="{{displayRefresh}}" onrefresh="handleRefresh">
         <div id="animation" onfocus="{{rotate}}" onload="{{rotate}}">
@@ -13,7 +10,6 @@
         </div>
         <text style="margin-left:36px;color:rgb(238, 162, 54)">下拉刷新...</text>
       </refresh>
-
      <cell onappear="onappear" ondisappear="ondisappear" onclick="onclickcell" class="row" repeat="{{(k , v) in rows}}" index="{{k}}">
         <rep-rank-item index="{{k}}" login="{{v.owner.login}}" avatar_url="{{v.owner.avatar_url}}" name="{{v.name}}" description="{{v.description}}" homepage="{{v.homepage}}" stargazers_count="{{v.stargazers_count}}"></rep-rank-item>
       </cell>
@@ -21,13 +17,11 @@
         <text class="loading-text" style="text-align: center; color:rgb(238, 162, 54)" if="{{(refreshDisplay==='hide' && rows.length > 0)}}">Load more</text>
         <loading-indicator class="indicator"></loading-indicator>
       </loading>
-
     </list>
   </div>
 </template>
 
 <style>
-
   .list {
     width: 750px;
     flex: 1;
@@ -39,12 +33,6 @@
   }
   .row {
     width: 750px;
-
-  }
-  .item {
-    border-bottom-width: 1px;
-    border-bottom-color: #c0c0c0;
-    padding:0px;
   }
   .item-title {
     color: #437ABE;
@@ -53,7 +41,6 @@
     font-size: 30px;
     color: #45b5f0;
   } 
-
   .loading-view {
     height: 120px;
     width: 750px;
@@ -86,7 +73,6 @@
     color:#DC544C;
     font-size: 44px;
   }
-
   .nav-bar {
     height: 80px;
     width: 750px;
@@ -117,15 +103,11 @@
       splashCircle:'//duqian291902259.github.io/dusan/oair/splash_circle.png',
       currentRotate: 0,
       currentScale: 1,
-      isStop: false,
       rows:[],
       currentLanguage:'JavaScript'
-
     },
-
     created: function(){
       this.baseURL = utils.getAppBaseUrl(this)
-
     },
     ready: function(e) {
       var storage = require('@weex-module/storage');
@@ -135,7 +117,6 @@
         if (me.currentLanguage !== e.data) {
           isDiff = true;
         }
-
         me.currentLanguage = e.data;
         if (!me.currentLanguage) {
           me.currentLanguage ='JavaScript'
@@ -143,7 +124,6 @@
         me.requestData(function(state) {
         });
       }); 
-
     },
 
     methods: {
@@ -151,10 +131,8 @@
         this.$openURL(this.baseURL+'language.js'+'?from=rep');
       },      
       onappear: function (e) {
-
       },
       ondisappear:function (e) {
-
       },
 
       onloading: function (e) {
@@ -164,7 +142,6 @@
         setTimeout(function () {
           vm.loadingDisplay = 'hide'
         }, 10000)
-
         vm.requestData(function(state) {
           vm.loadingDisplay = 'hide'
         });
@@ -180,33 +157,23 @@
         vm.requestData(function(state) {
           vm.displayRefresh = 'hide'
         });
-        
-
       },
       onclickcell: function (e) {
         var index = e.target.attr.index;
         var repUrl = this.baseURL+'rep-detail.js?rep_login='+this.rows[index].owner.login+'&rep_avatar_url='+this.rows[index].owner.avatar_url+'&rep_name='+this.rows[index].name+'&rep_created_at='+this.rows[index].created_at+'&rep_homepage='+this.rows[index].homepage+'&rep_description='+encodeURIComponent(this.rows[index].description);
         this.$openURL(repUrl);
-        
-
       },
       requestData:function (callback){
-
         var me = this;
-       
         monkeyApi.requestRepRank(me.currentLanguage,me.page,function(data){
           if (me.page>1) {
             for (var i = 0; i < data.length; i++) {
               var item = data[i];
               me.rows.push(item);
             }
-
           }else{
             me.rows=data;
           }
-          utils.weexLog('ddd'+JSON.stringify(me.rows[0]))
-          utils.weexLog('ddd1'+me.rows[0].description)
-
           callback(true);
         })
       },
@@ -227,7 +194,6 @@
           if (self.currentRotate === 360) {
             self.currentRotate = 0;
             self.rotate();
-
           }else {
             self.rotate();
             if (self.currentRotate === 180) {
@@ -247,7 +213,6 @@
           }
         });
       }
-
     }  
   }
 </script>

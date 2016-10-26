@@ -1,8 +1,3 @@
-/**
- * Created by walid on 16/6/13.
- * params : {method:POST/GET,url:http://xxx,header:{key:value},
- *                 body:{key:value}}
- */
 
 var stream
 __weex_define__('@weex-temp/x', function(__weex_require__) {
@@ -111,21 +106,11 @@ function requestUserDetail(login, callback){
         callback(ret.data);
     },function(response){
     });
-
-
-
-    
-
-
-
 }
-
 
 function requestRepRank(language,page, callback){
 
-    var GET_URL_JSONP;
-
-    GET_URL_JSONP = 'https://api.github.com/search/repositories?sort=stars&order=desc&page='+page+'&q=language:'+language;
+    var GET_URL_JSONP = 'https://api.github.com/search/repositories?sort=stars&order=desc&page='+page+'&q=language:'+language;
 
     stream.fetch({
         method: 'GET',
@@ -140,8 +125,6 @@ function requestRepRank(language,page, callback){
         console.log('get in progress:'+response.length);
     });
 }
-
-
 
 exports.requestGet = requestGet
 exports.requestGetWithBody = requestGetWithBody
