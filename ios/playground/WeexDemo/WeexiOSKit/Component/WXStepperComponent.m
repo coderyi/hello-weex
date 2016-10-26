@@ -14,16 +14,15 @@
 @implementation WXStepperView
 
 @end
-@interface WXStepperComponent()
-@property (nonatomic, strong)   WXStepperView    *stepperView;
-@property (nonatomic, assign)   float    minimumValue;
-@property (nonatomic, assign)   float    maximumValue;
-@property (nonatomic, assign)   float    value;
-@property (nonatomic) float stepValue;                    // default 1. must be greater than 0
 
+@interface WXStepperComponent()
+@property (nonatomic, strong) WXStepperView *stepperView;
+@property (nonatomic, assign) float minimumValue;
+@property (nonatomic, assign) float maximumValue;
+@property (nonatomic, assign) float value;
+@property (nonatomic) float stepValue;                    // default 1. must be greater than 0
 @property(nonatomic,copy) NSString *tintColor;
 @property (nonatomic, assign)   BOOL    changeEvent;
-
 @end
 
 
@@ -45,6 +44,7 @@
 {
     return [[WXStepperView alloc] init];
 }
+
 - (void)viewDidLoad
 {
     _stepperView = (WXStepperView *)self.view;
@@ -52,7 +52,6 @@
     _stepperView.maximumValue = _maximumValue;
     _stepperView.value = _value;
     _stepperView.stepValue = _stepValue;
-
     _stepperView.tintColor = [WXConvert UIColor:_tintColor];
     [_stepperView addTarget:self action:@selector(didClickStepperAction:) forControlEvents:UIControlEventValueChanged];
     
@@ -71,7 +70,9 @@
         _changeEvent = NO;
     }
 }
-- (void)didClickStepperAction:(UIStepper *)stepper{
+
+- (void)didClickStepperAction:(UIStepper *)stepper
+{
     if (_changeEvent) {
         [self fireEvent:@"change" params:@{@"value":@(stepper.value)} domChanges:@{@"attrs": @{@"checked": @(stepper.value)}}];
     }

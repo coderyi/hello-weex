@@ -14,21 +14,18 @@
 #import <CoreLocation/CLLocationManager.h>
 #import <CoreLocation/CLLocationManagerDelegate.h>
 
-
 @interface WXLocationModule ()<CLLocationManagerDelegate>
 @property (nonatomic,copy) WXModuleCallback successCallback;
 @property (nonatomic,copy) WXModuleCallback errorCallback;
-@property (nonatomic,strong)   CLLocationManager *locationManager;
+@property (nonatomic,strong) CLLocationManager *locationManager;
 
 @end
+
 @implementation WXLocationModule
 WX_EXPORT_METHOD(@selector(getCurrentPosition:success:error:))
 
-
 - (void)getCurrentPosition:(NSDictionary *)param success:(WXModuleCallback)success error:(WXModuleCallback)error
 {
-    
-
     CLLocationAccuracy accuracy = [WXConvert CGFloat:param[@"accuracy"]];
     if (accuracy<=0) {
         accuracy =1000;
@@ -63,9 +60,7 @@ WX_EXPORT_METHOD(@selector(getCurrentPosition:success:error:))
 
 }
 
-
 #pragma mark - Private API
-
 
 - (void)beginLocationUpdatesWithDesiredAccuracy:(CLLocationAccuracy)desiredAccuracy distanceFilter:(CLLocationDistance)distanceFilter
 {
@@ -150,6 +145,5 @@ WX_EXPORT_METHOD(@selector(getCurrentPosition:success:error:))
     }
     return nil;
 }
-
 
 @end

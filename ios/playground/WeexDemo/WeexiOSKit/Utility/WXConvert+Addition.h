@@ -13,7 +13,5 @@
 + (NSArray<NSString *> *)NSStringArray:(id)value;
 + (NSArray<NSArray *> *)NSArrayArray:(id)json;
 + (NSArray<NSArray<NSString *> *> *)NSStringArrayArray:(id)json;
-
 + (NSURL *)NSURL:(id)json;
-
 @end

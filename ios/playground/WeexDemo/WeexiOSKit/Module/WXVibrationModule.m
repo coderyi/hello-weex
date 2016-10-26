@@ -17,7 +17,6 @@
 WX_EXPORT_METHOD(@selector(vibrate))
 
 - (void)vibrate
-
 {
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
 }

@@ -15,8 +15,8 @@
 
 @end
 @interface WXDatePickerComponent()
-@property (nonatomic, strong)   WXDatePickerView    *datePickerView;
-@property (nonatomic, assign)   BOOL    changeEvent;
+@property (nonatomic, strong) WXDatePickerView *datePickerView;
+@property (nonatomic, assign) BOOL changeEvent;
 
 @end
 
@@ -60,7 +60,9 @@
         _changeEvent = NO;
     }
 }
-- (void)datePickerValueChanged:(UIDatePicker *)datePicker {
+
+- (void)datePickerValueChanged:(UIDatePicker *)datePicker
+{
     if (_changeEvent) {
         [self fireEvent:@"change" params:@{@"value":datePicker.date} domChanges:@{@"attrs": @{@"checked": datePicker.date}}];
     }

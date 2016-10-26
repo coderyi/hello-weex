@@ -26,7 +26,6 @@ return nil;                              \
 return WXConvertArrayValue(@selector(type:), json); \
 }
 
-
 WX_JSON_CONVERTER(NSArray)
 WX_ARRAY_CONVERTER(NSString)
 WX_ARRAY_CONVERTER(NSArray)
@@ -56,7 +55,6 @@ NSArray *WXConvertArrayValue(SEL type, id json)
     }];
     return values;
 }
-
 
 + (NSURL *)NSURL:(id)json
 {

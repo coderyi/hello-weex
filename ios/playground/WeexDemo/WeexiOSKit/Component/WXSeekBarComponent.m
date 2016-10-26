@@ -18,24 +18,22 @@
 @implementation WXSeekBarView
 
 @end
+
 static dispatch_queue_t WXImageUpdateQueue;
 
 @interface WXSeekBarComponent()
-@property (nonatomic, strong)   WXSeekBarView    *seekBarView;
-@property (nonatomic, assign)   float    minimumValue;
-@property (nonatomic, assign)   float    maximumValue;
-@property (nonatomic, assign)   float    value;
-@property (nonatomic, assign)   BOOL    changeEvent;
-
-@property(nullable, nonatomic,strong) UIColor *minimumTrackTintColor ;
-@property(nullable, nonatomic,strong) UIColor *maximumTrackTintColor ;
-@property(nullable, nonatomic,strong) UIColor *thumbTintColor ;
+@property (nonatomic, strong) WXSeekBarView *seekBarView;
+@property (nonatomic, assign) float minimumValue;
+@property (nonatomic, assign) float maximumValue;
+@property (nonatomic, assign) float value;
+@property (nonatomic, assign) BOOL changeEvent;
+@property (nonatomic,strong) UIColor *minimumTrackTintColor ;
+@property (nonatomic,strong) UIColor *maximumTrackTintColor ;
+@property (nonatomic,strong) UIColor *thumbTintColor ;
 @property (nonatomic, strong) id<WXImageOperationProtocol> thumbImageOperation;
 @property (nonatomic, strong) id<WXImageOperationProtocol> minimumTrackImageOperation;
 @property (nonatomic, strong) id<WXImageOperationProtocol> maximumTrackImageOperation;
-
 @property (nonatomic) BOOL imageLoadEvent;
-
 @property (nonatomic, strong) NSString *thumbImageSrc;
 @property (nonatomic, strong) NSString *minimumTrackImageSrc;
 @property (nonatomic, strong) NSString *maximumTrackImageSrc;
@@ -44,6 +42,7 @@ static dispatch_queue_t WXImageUpdateQueue;
 @end
 
 @implementation WXSeekBarComponent
+
 - (instancetype)initWithRef:(NSString *)ref type:(NSString *)type styles:(NSDictionary *)styles attributes:(NSDictionary *)attributes events:(NSArray *)events weexInstance:(WXSDKInstance *)weexInstance
 {
     if (self = [super initWithRef:ref type:type styles:styles attributes:attributes events:events weexInstance:weexInstance]) {
@@ -71,10 +70,12 @@ static dispatch_queue_t WXImageUpdateQueue;
     }
     return self;
 }
+
 - (UIView *)loadView
 {
     return [[WXSeekBarView alloc] init];
 }
+
 - (void)viewDidLoad
 {
     _seekBarView = (WXSeekBarView *)self.view;
@@ -102,12 +103,12 @@ static dispatch_queue_t WXImageUpdateQueue;
         _changeEvent = NO;
     }
 }
+
 - (void)didClickSeekBarAction:(UISlider *)slider{
     if (_changeEvent) {
         [self fireEvent:@"change" params:@{@"value":@(slider.value)} domChanges:@{@"attrs": @{@"checked": @(slider.value)}}];
     }
 }
-
 
 - (void)updateImage
 {

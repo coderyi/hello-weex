@@ -13,7 +13,6 @@
 @property (nonatomic,copy) WXModuleCallback moduleCallback;
 @end
 
-
 @implementation WXActionSheetModule
 @synthesize weexInstance;
 
@@ -54,6 +53,7 @@ WX_EXPORT_METHOD(@selector(actionSheetShow:callback:))
 
     _moduleCallback(@{@"buttonIndex":@(buttonIndex)});
 }
+
 - (NSString*)stringValue:(id)value
 {
     if ([value isKindOfClass:[NSString class]]) {

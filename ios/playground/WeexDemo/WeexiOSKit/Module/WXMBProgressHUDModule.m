@@ -51,26 +51,21 @@ WX_EXPORT_METHOD(@selector(hideHUD))
         if (cancelTitle.length>0) {
             [_hud.button setTitle:cancelTitle forState:UIControlStateNormal];
             [_hud.button addTarget:self action:@selector(cancelWork) forControlEvents:UIControlEventTouchUpInside];
-
         }
-
     });
-    
-
 }
 
-- (void)cancelWork {
+- (void)cancelWork
+{
     [self hideHUD];
 }
+
 - (void)hideHUD
 {
     WXPerformBlockOnMainThread(^{
         [_hud hideAnimated:YES];
     });
-    
-    
 }
-
 
 - (NSString*)stringValue:(id)value
 {
@@ -82,6 +77,5 @@ WX_EXPORT_METHOD(@selector(hideHUD))
     }
     return nil;
 }
-
 
 @end
