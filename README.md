@@ -111,7 +111,15 @@ event:`onchange`
 
 
 ```
-<stepper style="width: 240;height: 120;margin-top:20" value="20" step-value= "10" minimum-value="0" maximum-value="100" tint-color= "red" onchange="onChangeAction"></stepper>
+<stepper 
+	style="width: 240;height: 120;margin-top:20" 
+	value="20" 
+	step-value= "10" 
+	minimum-value="0" 
+	maximum-value="100" 
+	tint-color= "red" 
+	onchange="onChangeAction">
+</stepper>
 ```
 
 seek-bar   
@@ -120,9 +128,27 @@ seek-bar
 event:`onchange`
 
 ```
-<seek-bar style=" width: 400;height: 70;margin-top:20;margin-left:20" minimum-value="0" maximum-value="100" value="50" onchange="seekBarChange" minimum-track-tint-color="blue" maximum-track-tint-color="blue" thumb-tint-color="red" > sdsd</seek-bar>
+<seek-bar 
+	style=" width: 400;height: 70;margin-top:20;margin-left:20" 
+	minimum-value="0" 
+	maximum-value="100" 
+	value="50" 
+	onchange="seekBarChange" 
+	minimum-track-tint-color="blue" 
+	maximum-track-tint-color="blue" 
+	thumb-tint-color="red" > 
+</seek-bar>
 
-<seek-bar style=" width: 160;height: 140;margin-top:20;margin-left:220" minimum-value="0" maximum-value="100" value="50" onchange="imageSeekBarChange"  thumb-image-src="https://raw.githubusercontent.com/jainsourabh2/SayIt/master/iOS/SayIt/SayIt/rating1.png" maximum-track-image-src="http://pic002.cnblogs.com/images/2012/348285/2012042611243397.png" minimum-track-image-src="http://pic002.cnblogs.com/images/2012/348285/2012042611244465.png"> sdsd</seek-bar>
+<seek-bar 
+	style=" width: 160;height: 140;margin-top:20;margin-left:220" 
+	minimum-value="0" 
+	maximum-value="100" 
+	value="50" 
+	thumb-image-src="https://raw.githubusercontent.com/jainsourabh2/SayIt/master/iOS/SayIt/SayIt/rating1.png" 
+	maximum-track-image-src="http://pic002.cnblogs.com/images/2012/348285/2012042611243397.png" 
+	minimum-track-image-src="http://pic002.cnblogs.com/images/2012/348285/2012042611244465.png" 	
+	onchange="imageSeekBarChange"> 
+</seek-bar>
 ```
 
 
@@ -135,7 +161,11 @@ event:`onclick `
 
 
 ```
-<search-bar style="width: 300;height: 120;margin-top:20"  tint-color= "red" onclick="onclicksearch"></search-bar>
+<search-bar 
+	style="width: 300;height: 120;margin-top:20"  
+	tint-color= "red" 
+	onclick="onclicksearch">
+</search-bar>
 ```
 
 date-picker   
@@ -145,7 +175,11 @@ event:`onchange `
 
 
 ```
-<date-picker style="width: 640;height: 400;margin-top:20"  tint-color= "red" onchange="onclickdatepicker" ></date-picker>
+<date-picker 
+	style="width: 640;height: 400;margin-top:20"  
+	tint-color= "red" 
+	onchange="onclickdatepicker" >
+</date-picker>
 ```
 
 ####Module
@@ -219,7 +253,13 @@ weex-web-kit代码位于[html5/browser/weex-web-kit](https://github.com/coderyi/
 <img  src="https://github.com/coderyi/hello-weex/blob/master/img/web-sc.png" width="250" height="445">
 
 ```
-<segmented-control style="width: 240;height: 120;margin-top:20" items="hello;world" momentary= "false" tint-color= "red" onchange="onChangeAction"></segmented-control>
+<segmented-control 
+	style="width: 240;height: 120;margin-top:20" 
+	items="hello;world" 
+	momentary= "false" 
+	tint-color= "red" 
+	onchange="onChangeAction">
+</segmented-control>
 ```
 
 
