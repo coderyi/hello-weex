@@ -3,7 +3,7 @@
 
 
 
-###简介
+### 简介
 
 hello-weex包括一个Weex App，和自己扩展的WeexiOSKit。
 
@@ -34,7 +34,7 @@ WeexiOSKit的代码位于 [ios/playground/WeexDemo/WeexiOSKit](https://github.co
 
 
 
-###Weex App: Monkey for GitHub
+### Weex App: Monkey for GitHub
 
 Monkey主要是用来展示GitHub上的开发者的排名，以及仓库的排名。
 
@@ -43,7 +43,7 @@ Monkey主要是用来展示GitHub上的开发者的排名，以及仓库的排�
 <img  src="https://github.com/coderyi/hello-weex/blob/master/img/mr.png?raw=true" width="250" height="445">
 </div>
 
-###WeexiOSKit
+### WeexiOSKit
 
 WeexiOSKit主要是扩展了一些iOS的Component和Module，这样在weex端就可以很好的使用了。
 
@@ -55,7 +55,7 @@ Module主要包括actionSheet（UIActionSheet），MBProgressHUD（MBProgressHUD
 
 
 
-####Component
+#### Component
 
 <div flex-direction:"row">
 
@@ -65,7 +65,7 @@ Module主要包括actionSheet（UIActionSheet），MBProgressHUD（MBProgressHUD
 </div>
 
 
-####Module
+#### Module
 
 <div flex-direction:"row">
 
@@ -81,9 +81,9 @@ Module主要包括actionSheet（UIActionSheet），MBProgressHUD（MBProgressHUD
 <img  src="https://github.com/coderyi/hello-weex/blob/master/img/ie.png?raw=true" width="250" height="445">
 </div>
 
-###WeexiOSKit使用
+### WeexiOSKit使用
 
-####Component
+#### Component
 
 segmented-control:支持iOS & web
    
@@ -182,7 +182,7 @@ event:`onchange `
 </date-picker>
 ```
 
-####Module
+#### Module
 
 
 MBProgressHUD为loading模块
@@ -246,7 +246,7 @@ vibration
 ```
 
 
-###weex-web-kit
+### weex-web-kit
 
 weex-web-kit代码位于[html5/browser/weex-web-kit](https://github.com/coderyi/hello-weex/tree/master/html5/browser/weex-web-kit)目录下
 
